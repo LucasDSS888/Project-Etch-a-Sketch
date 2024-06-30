@@ -4,31 +4,30 @@ function setGrid(x, y){
 
     for(let i=1; i <= x; i++) {
 
-        const colum = document.createElement("div");
-        colum.classList.add("colum");
+        const line = document.createElement("div");
+        line.classList.add("line");
 
         // div.setAttribute("style", "color: blue; background: red; padding: 10px; flex-wrap: wrap;");
 
-        container.appendChild(colum);
+        container.appendChild(line);
 
 
     
     }
 
-    liColum = document.querySelectorAll(".colum");
+    liLine = document.querySelectorAll(".line");
 
-    liColum.forEach(element => {
+    liLine.forEach(element => {
         for(let i = 1; i <= y; i++) {
-            const line = document.createElement("div");
-            line.classList.add("line");
-            element.appendChild(line);
+            const square = document.createElement("div");
+            square.classList.add("square");
+            element.appendChild(square);
         }
     });
 
     function paint(){
-        liLine = document.querySelectorAll(".line");
-
-        liLine.forEach(element => {
+        liSquare = document.querySelectorAll(".square");
+        liSquare.forEach(element => {
             element.addEventListener("mouseover", () => {
                 element.setAttribute("style", "background: red;");
             });
@@ -40,8 +39,4 @@ function setGrid(x, y){
 
 }
 
-setGrid(16, 16);
-
-
-
-
+setGrid(4, 4);
