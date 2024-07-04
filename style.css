@@ -19,6 +19,8 @@ body {
 
 .divbtn {
     /* border: 1px solid blue; */
+    width:  85px;
+    height: 40px;
 }
 
 .container {
@@ -29,6 +31,7 @@ body {
     border: 1px red solid;
     width:  600px;
     height: 600px;
+    
     
 }
 

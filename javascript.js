@@ -22,15 +22,38 @@ function setGrid(x){
         }
     });
 
-    function paint(){
+    function paint_black(){
         liSquare = document.querySelectorAll(".square");
         liSquare.forEach(element => {
             element.addEventListener("mouseover", () => {
-                element.setAttribute("style", "background: red;");
+                element.setAttribute("style", "background: black;");
             });
         });
     }
-    paint();
+
+    function paint_rgb(){
+
+        liSquare = document.querySelectorAll(".square");
+        liSquare.forEach(element => {
+            let red = 255;
+            let green = 0;
+            let blue = 0;
+            element.addEventListener("mouseover", () => {
+                function randomInteger(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                  }
+                let red = randomInteger(0, 255);
+                let green = randomInteger(0, 255);
+                let blue = randomInteger(0, 255);
+
+                element.setAttribute("style", `background: rgb(${red}, ${green}, ${blue});`);
+            });
+        });
+    }
+
+
+    // paint_black();
+    paint_rgb();
 }
 
 setGrid(4);
