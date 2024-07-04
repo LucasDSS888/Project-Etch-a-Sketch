@@ -52,8 +52,23 @@ function setGrid(x){
     }
 
 
+
+    function paint_darkeningEffect(){
+        liSquare = document.querySelectorAll(".square");
+        liSquare.forEach(element => {
+            let opt = 0.1;
+            element.addEventListener("mouseover", () => {
+                element.setAttribute("style", `background: black; opacity: ${opt};`);
+                opt += 0.1;
+            });
+        });
+    }
+
+
+    
     // paint_black();
-    paint_rgb();
+    // paint_rgb(); 
+    paint_darkeningEffect();
 }
 
 setGrid(4);
