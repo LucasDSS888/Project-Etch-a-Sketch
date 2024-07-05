@@ -14,11 +14,14 @@ body {
 
 
 .btn {
-    margin-bottom: 100px;
 }
 
 .divbtn {
     /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
     width:  85px;
     height: 40px;
 }
@@ -53,4 +56,3 @@ body {
     background-color: white;
     /* border: solid 1px blue; */
 }
-

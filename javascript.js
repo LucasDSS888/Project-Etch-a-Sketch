@@ -89,3 +89,14 @@ btn.addEventListener('click', () => {
     delGrid();
     newGrid();
 })
+
+const btn_rgb = document.querySelector('.btn_rgb');
+const span_rgb = document.querySelector('.btn_rgb span');
+btn_rgb.addEventListener('click', () => {
+    
+    if(document.querySelector('.btn_rgb span').innerText == 'OFF'){
+        span_rgb.textContent = 'ON';
+    }else{
+        span_rgb.textContent = 'OFF';
+    }
+})
