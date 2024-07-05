@@ -1,3 +1,5 @@
+let rgb = false;
+
 function setGrid(x){
     const container = document.querySelector(".container");
 
@@ -65,10 +67,16 @@ function setGrid(x){
     }
 
 
+    if(rgb){
+        paint_rgb();
+    }else{
+        paint_black();
+    }
+
     
     // paint_black();
     // paint_rgb(); 
-    paint_darkeningEffect();
+    // paint_darkeningEffect();
 }
 
 setGrid(4);
@@ -94,9 +102,19 @@ const btn_rgb = document.querySelector('.btn_rgb');
 const span_rgb = document.querySelector('.btn_rgb span');
 btn_rgb.addEventListener('click', () => {
     
+    liLine = document.querySelectorAll(".line");
+    
+    delGrid();
+    
+
     if(document.querySelector('.btn_rgb span').innerText == 'OFF'){
         span_rgb.textContent = 'ON';
+        rgb = true;
     }else{
         span_rgb.textContent = 'OFF';
+        rgb = false
     }
+
+    setGrid(liLine.length);
 })
+
