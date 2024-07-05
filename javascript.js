@@ -1,4 +1,6 @@
 let rgb = false;
+let dark = false;
+
 
 function setGrid(x){
     const container = document.querySelector(".container");
@@ -27,8 +29,14 @@ function setGrid(x){
     function paint_black(){
         liSquare = document.querySelectorAll(".square");
         liSquare.forEach(element => {
+            let opt = 0.1;
             element.addEventListener("mouseover", () => {
-                element.setAttribute("style", "background: black;");
+                if(dark){
+                    element.setAttribute("style", `background: black; opacity: ${opt};`);
+                    opt += 0.1;
+                }else{
+                    element.setAttribute("style", "background: black;");
+                }
             });
         });
     }
@@ -40,6 +48,7 @@ function setGrid(x){
             let red = 255;
             let green = 0;
             let blue = 0;
+            let opt = 0.1;
             element.addEventListener("mouseover", () => {
                 function randomInteger(min, max) {
                     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -48,20 +57,12 @@ function setGrid(x){
                 let green = randomInteger(0, 255);
                 let blue = randomInteger(0, 255);
 
-                element.setAttribute("style", `background: rgb(${red}, ${green}, ${blue});`);
-            });
-        });
-    }
-
-
-
-    function paint_darkeningEffect(){
-        liSquare = document.querySelectorAll(".square");
-        liSquare.forEach(element => {
-            let opt = 0.1;
-            element.addEventListener("mouseover", () => {
-                element.setAttribute("style", `background: black; opacity: ${opt};`);
-                opt += 0.1;
+                if(dark){
+                    element.setAttribute("style", `background: rgb(${red}, ${green}, ${blue}); opacity: ${opt};`);
+                    opt += 0.1;
+                }else{
+                    element.setAttribute("style", `background: rgb(${red}, ${green}, ${blue});`);
+                }
             });
         });
     }
@@ -103,7 +104,7 @@ const span_rgb = document.querySelector('.btn_rgb span');
 btn_rgb.addEventListener('click', () => {
     
     liLine = document.querySelectorAll(".line");
-    
+
     delGrid();
     
 
@@ -113,6 +114,26 @@ btn_rgb.addEventListener('click', () => {
     }else{
         span_rgb.textContent = 'OFF';
         rgb = false
+    }
+
+    setGrid(liLine.length);
+})
+
+const btn_sha = document.querySelector('.btn_sha');
+const span_sha = document.querySelector('.btn_sha span');
+btn_sha.addEventListener('click', () => {
+    
+    liLine = document.querySelectorAll(".line");
+
+    delGrid();
+    
+
+    if(document.querySelector('.btn_sha span').innerText == 'OFF'){
+        span_sha.textContent = 'ON';
+        dark = true;
+    }else{
+        span_sha.textContent = 'OFF';
+        dark = false
     }
 
     setGrid(liLine.length);
